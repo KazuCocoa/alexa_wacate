@@ -30,7 +30,7 @@ HelloWorld.prototype.eventHandlers.onSessionStarted = function (sessionStartedRe
 
 HelloWorld.prototype.eventHandlers.onLaunch = function (launchRequest, session, response) {
     console.log("Alexa wacate onLaunch requestId: " + launchRequest.requestId + ", sessionId: " + session.sessionId);
-    var speechOutput = "Hello wacate";
+    var speechOutput = "Enjoy waca te ?";
     var repromptText = "Do you enjoy wacate ?";
     response.ask(speechOutput, repromptText);
 };
@@ -44,7 +44,14 @@ HelloWorld.prototype.eventHandlers.onSessionEnded = function (sessionEndedReques
 HelloWorld.prototype.intentHandlers = {
     // register custom intent handlers
     "HelloWacateIntent": function (intent, session, response) {
-        response.tellWithCard("Hello World!", "Greeter", "Hello World!");
+        speechOutput = {
+            speech: "<speak>Hello wacate ! <break time=\"0.3s\" /> Do you enjoy wacate ?",
+            type: AlexaSkill.speechOutputType.SSML
+        };
+
+        cardOutput = "Hello wacate !";
+
+        response.tellWithCard(speechOutput, "Wacate", cardOutput);
     }
 };
 
