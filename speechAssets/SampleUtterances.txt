@@ -1,0 +1,2 @@
+HelloWacateIntent say hello wacate
+HelloWacateIntent wacate
